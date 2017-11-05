@@ -5,7 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var spawn = require('child-process').spawn;
+var spawn = require('child_process').spawn;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -59,8 +59,16 @@ app.use(function(err, req, res, next) {
 
 var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
 setInterval(function() {
+  console.log('asdasd')
   spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])
-}, 120)
+}, 120* 1000)
 module.exports = app;
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3001, () => {
+  console.log('Example app listening on port 3000!')
+  setInterval(function() {
+    console.log('asdasd')
+    spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])
+  }, 120000)
+  console.log('finished setting_interval')
+})
