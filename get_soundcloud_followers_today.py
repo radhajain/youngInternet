@@ -11,8 +11,10 @@ i.strftime('%m.%d.%y')
 
 # print(','.join(['artist_name', i.strftime('%m.%d.%y')]))
 f = open('output.txt', 'w')
-f.write(','.join(['artist_name', i.strftime('%m.%d.%y')]) + '\n')
+# f.write(','.join(['artist_name', i.strftime('%m.%d.%y')]) + '\n')
 #for loop
+strToWrite = ''
+strToWrite += ','.join(['artist_name', i.strftime('%m.%d.%y')]) + '\n'
 with open('little_nodes.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     next (readCSV)
@@ -29,6 +31,9 @@ with open('little_nodes.csv') as csvfile:
         artist = row[1]
         meta = soup.find('meta', property="soundcloud:follower_count")
         followers = meta["content"]
-        f.write(str(','.join([artist, followers]).encode('utf-8').strip()) + '\n')
+#        f.write(str(','.join([artist, followers]).encode('utf-8').strip()) + '\n')
+        strToWrite += (str(','.join([artist, followers]).encode('utf-8').strip()) + '\n')
         time.sleep(3)
+f.write(strToWrite)
+f.close()
 
