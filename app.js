@@ -5,7 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var spawn = require('child-process').spawn;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -57,8 +57,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
+setInterval(function() {
+  spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])
+}, 120)
 module.exports = app;
-exec('python3 get_soundcloud_followers_today.py >> output.txt', function() {
-  console.log('the process completed')
-})
+
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
