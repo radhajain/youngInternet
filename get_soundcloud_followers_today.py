@@ -9,7 +9,9 @@ i = datetime.datetime.now()
 
 i.strftime('%m.%d.%y')
 
-print(','.join(['artist_name', i.strftime('%m.%d.%y')]))
+# print(','.join(['artist_name', i.strftime('%m.%d.%y')]))
+f = open('output.txt', 'w')
+f.write(','.join(['artist_name', i.strftime('%m.%d.%y')])
 #for loop
 with open('the_young_internet_nodes.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
@@ -26,6 +28,6 @@ with open('the_young_internet_nodes.csv') as csvfile:
         artist = row[1]
         meta = soup.find('meta', property="soundcloud:follower_count")
         followers = meta["content"]
-        print(','.join([artist, followers]).encode('utf-8').strip())
+        f.write(','.join([artist, followers]).encode('utf-8').strip())
         time.sleep(3)
 
