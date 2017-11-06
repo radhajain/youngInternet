@@ -1,11 +1,12 @@
 var express = require('express');
-var exec = require('exec');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var spawn = require('child_process').spawn;
+var fs = require('fs');
+const { exec } = require('child_process');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -56,19 +57,21 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
-setInterval(function() {
-  console.log('asdasd')
-  spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])
-}, 120* 1000)
+//exec('/usr/bin/python3 /home/bitnami/projects/sample/get_soundcloud_followers_today.py')
+//var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
+  //spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])}, 120* 1000)
 module.exports = app;
+
+setInterval(function() {
+  fs.readFile('output.txt', 'utf8', function(err, data) {
+    if (err) {
+      console.log('errorrrr' + err);
+  } else {
+      if (data == "") console.log(data);
+  }
+})}, 2 * 1000)
 
 app.listen(3001, () => {
   console.log('Example app listening on port 3000!')
-  setInterval(function() {
-    console.log('asdasd')
-    spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])
-  }, 120000)
-  console.log('finished setting_interval')
 })
+
