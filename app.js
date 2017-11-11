@@ -9,6 +9,8 @@ var fs = require('fs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var csv = require('fast-csv');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var app = express();
 
@@ -60,14 +62,16 @@ app.use(function(err, req, res, next) {
 //exec('/usr/bin/python3 /home/bitnami/projects/sample/get_soundcloud_followers_today.py')
 //var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
   //spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])}, 120* 1000)
-module.exports = app;
 
-// var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
-// mongoose.Promise = global.Promise;
-// var Cat = mongoose.model('Cat', { name: String });
+// mongoose.connect('mongodb://localhost/test', { useMongoClient: true }, function(error) {
+//   console.log('we connected')
+//   console.log(error)
+// });
+var db = Mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/admin');
+mongoose.Promise = global.Promise;
+var Cat = mongoose.model('Cat', { name: String });
 
-var artistSchema = newSchema({
+var artistSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
   intid: Number,
   artist: String,
@@ -75,8 +79,8 @@ var artistSchema = newSchema({
   soundcloud_url: String,
   instagram_url: String,
   yt_channel_id: String,
-  t_channel_url: String,
-  twitter_name: String,
+  yt_channel_url: String,
+  twitter_url: String,
   tyi_url: String,
   artist_type: String,
   type_label: String,
@@ -92,6 +96,57 @@ var artistSchema = newSchema({
   notes: String
 });
 
+var Artist = mongoose.model('Artist', artistSchema);
+
+var artistFile = 'the_young_internet_nodes.csv';
+var edgeFile = 'the_young_internet_edges.csv';
+var artists = [];
+
+var stream = fs.createReadStream(artistFile);
+// var csvStream = csv().on('data', function(data) {
+//   // data[_id] = new mongoose.Types.ObjectId();
+//   // artists.push(data);
+//   console.log(data)
+// }).on('end', function() {
+//   Artist.create(artists, function(err, documents) {
+//     if (err) throw err;
+//   });
+// })
+
+var csvStream = csv.parse().on("data", function(data) 
+{
+  var artistObj = {};
+  artistObj["_id"] = new mongoose.Types.ObjectId();
+  artistObj["intid"] = parseInt(data[0]);
+  artistObj["artist"] = data[1];
+  artistObj["soundcloudFollows"] = [];
+  artistObj["soundcloud_url"] = data[2];
+  artistObj["instagram_url"] = data[3];
+  artistObj["yt_channel_id"] = data[4];
+  artistObj["ytchannel_url"] = data[5];
+  artistObj["twitter_url"] = data[6];
+  artistObj["tyi_url"] = data[7];
+  artistObj["artist_type"] = data[8];
+  artistObj["type_label"] = data[9];
+  artistObj["soundcloud_followers"] = parseInt(data[10]);
+  artistObj["location"] = data[11];
+  artistObj["label"] = data[12];
+  artistObj["signed"] = data[13];
+  artistObj["monitored"] = data[14];
+  artistObj["score"] = data[15];
+  artistObj["images"] = [];
+  artistObj["parent"] = '';
+  artistObj["notes"] = '';
+  artists.push(artistObj);
+  // console.log(data);
+}).on("end", function(){
+  console.log(artists.slice(1, artists.length));
+  Artist.create(artists, function(err, documents) {
+    if (err) throw err;
+  });    
+});
+ 
+stream.pipe(csvStream);
 
 // var kitty = new Cat({ name: 'Zildjian' });
 // kitty.save(function (err) {
@@ -104,6 +159,6 @@ var artistSchema = newSchema({
 
 module.exports = app;
 app.listen(3001, () => {
-  console.log('Example app listening on port 3000!')
+  console.log('Example app listening on port 3001!')
 })
 
