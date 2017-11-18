@@ -67,7 +67,7 @@ app.use(function(err, req, res, next) {
 //   console.log('we connected')
 //   console.log(error)
 // });
-var db = Mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/admin');
+var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/artists');
 mongoose.Promise = global.Promise;
 var Cat = mongoose.model('Cat', { name: String });
 
@@ -140,10 +140,19 @@ var csvStream = csv.parse().on("data", function(data)
   artists.push(artistObj);
   // console.log(data);
 }).on("end", function(){
-  console.log(artists.slice(1, artists.length));
   Artist.create(artists, function(err, documents) {
+    console.log(documents);
     if (err) throw err;
   });    
+  var myConnection = mongoose.createConnection('localhost', 'admin');
+  var mm = myConnection.model('artists', artistSchema);
+  myConnection.db.collection("Artists", function(err, collection) {
+    console.log(" SEARCHING");
+    collection.find({}).toArray(function(err, data) {
+      console.log(data);
+    });
+  });
+  var myDoc = new Artist({});
 });
  
 stream.pipe(csvStream);
