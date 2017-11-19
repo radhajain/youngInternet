@@ -1,0 +1,399 @@
+a#counselorLink {
+	color: #0275d8;
+	float: none;
+}
+
+a#counselorSendLink {
+	color: #0275d8;
+	float: none;
+	display: block;
+}
+
+img {
+	vertical-align: middle;
+	position: relative;
+}
+
+a.starButton {
+	content: "&#11090;";
+	width: 10px;
+}
+
+a.starredButton {
+	content: "&#11091;";
+	width: 10px;
+}
+
+section#main h6 {
+	margin: 0;
+}
+
+section#selects {
+  width: 256px;
+	height: calc(100vh - 66px);
+	float: left;
+	border-top: none;
+	border-left: none;
+	overflow-x: hidden;
+	border-bottom: 2px solid #035151;
+}
+
+section#selects ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	max-height: calc(100vh - 148px);
+	overflow-x: hidden;
+}
+
+section#selects ul li {
+  cursor: pointer;
+	font-size: 20px;
+	color: #035151;
+	background-color: #64C6D4;
+	width: 252px;
+	margin-left: 0;
+	height: 80px;
+	border: 2px solid #035151;
+	// border-left: 4px solid black;
+	// border-right: 4px solid black;
+	border-left: none;
+	border-right: none;
+	padding: 5px;
+	// padding-left: 1em;
+	// text-indent: -1em;
+}
+
+section#selects ul li:first-child	 {
+	// border-top: 4px solid #035151;
+}
+section#selects ul#schoolSelect li:last-child {
+	border-bottom: 4px solid #035151;
+}
+
+section#selects ul li img {
+	height: 40px;
+	width: 40px;
+	margin-top: 12.5px;
+	margin-bottom: 12.5px;
+	float: left;
+}
+
+
+section#selects span.pre {
+	display: inline;
+}
+section#selects span {
+	display: block;
+	cursor: pointer;
+	color: #035151;
+	font-size: larger;
+	border-bottom: 2px solid #035151;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  padding: 10px;	
+  border-right: 4px solid #035151;
+}
+
+.selectedSettings {
+	border-right: none !important;
+	border-bottom: none !important;
+}
+
+.topAdjacentSettingsSelected {
+	border-top-right-radius: 5px;
+	border-top: 2px solid #035151;
+}
+
+.bottomAdjacentSettingsSelected {
+	border-bottom-right-radius: 5px;
+}
+
+section#selects span#selectSpacer {
+	cursor: default;
+	height: 100px;
+}
+
+ul#schoolSelect {
+	padding: 0;
+	margin: 0;
+	margin-left: 20px;
+	width: calc(100% - 20px);
+	overflow-x: hidden;
+  /*max-height: 25vh;*/
+}
+
+.selectClosed {
+  height: 20px;
+}
+
+.selectOpen {
+  height: 400px;
+}
+
+ul#schoolSelect li {
+	color: #035151;
+}
+
+#studentSelect {
+	height: calc(100vh - 326px);
+	border-right: 4px solid #035151;
+}
+
+#studentSelect li:last-child {
+	border-bottom: none !important;
+}
+
+section#main {
+	float: left;
+	height: calc(100vh - 66px);
+	padding: 25px;
+	width: calc(100vw - 271px);
+}
+
+.filler {
+	text-align: center;
+	font-size: 28px;
+	// width: 500px;
+	color: #026A78;
+	font-weight: bold;
+	// margin: auto;
+}
+
+.searchButton {
+	margin: auto;
+	display: inline-block;
+	background-color: #1AA4B7;
+	border: 2px solid #FF8076;
+	border-radius: 10px;
+	cursor: pointer;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+
+}
+
+.clearButton {
+	margin: auto;
+	display: inline-block;
+	background-color: #FF8076;
+	border: 2px solid #1AA4B7;
+	border-radius: 5px;
+	cursor: pointer;
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+
+}
+
+.searchButton:focus {
+	outline: none;
+}
+
+.resultsHolder {
+	overflow: auto;
+	max-height: calc(100vh - 411px);
+	list-style: none;
+	padding: 0;
+	border: 2px solid #FFD476;
+	color: #222;
+	border-radius: 5px;
+	width: calc(100vw - 550px);
+	float: left;
+}
+
+.schoolResult {
+	height: 60px;
+}
+
+.aboveResults {
+	height: 300px;
+}
+
+.schoolStack, .studentStack {
+	list-style: none;
+	float: right;
+	border-radius: 4px;
+	width: 400px;
+	padding: 4px;
+	border: 2px solid #FFD476;
+	margin: 0;
+	overflow: auto;
+	max-height: 300px;
+}
+
+.schoolStack {
+	width: 370px;
+}
+
+.schoolStack li #name {
+	width: 300px !important;
+}
+
+.schoolStack li, .studentStack li {
+	color: #222;
+	height: 60px;
+	padding: 5px;
+}
+
+.studentStackStat {
+	position: relative;
+	float: right;
+}
+
+.studentStack .removeStudent, .schoolStack .removeStudent {
+	position: relative;
+	margin: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+.soloStudent .removeStudent {
+	position: absolute;
+	margin: 0;
+	margin-left: 358px;
+}
+
+
+.studentCardStatsList {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.studentCardStatsList p {
+	flex: 1 0 0;
+	text-align: center;
+	margin: 0;
+}
+
+.studentCardSATACT span {
+	display: inherit;
+}
+
+.soloStudent {
+	height: 256px;
+	display: block;
+	border: 2px solid #FFD476;
+	width: 400px;
+	border-radius: 5px;
+	margin: 0;
+}
+
+.soloStudent h3 {
+	text-align: center;
+}
+
+@media(max-width: 1106px) {
+	#cardHolder {
+
+	}
+}
+
+#cardHolder {
+	max-height: 302px;
+	// overflow-x: hidden;
+	width: calc(100vw - 306px);
+}
+
+.studentStack, .schoolStack {
+	padding: 0;
+	float: left;
+	// height: 260px;
+	width: 400px;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.schoolStack {
+	float: right;
+}
+
+.studentStack li, .schoolStack li  {
+	height: 60px;
+	padding: 5px;
+}
+
+.studentStack li #name, .schoolStack li #name {
+	float: left;
+	width: 136px;
+	font-size: 16px;
+	margin: 0;
+	display: inline;
+	text-align: center;
+	line-height: 50px;
+	height: 50px;
+	overflow: hidden;
+	color: #222;
+}
+
+.studentStack li .statsHolder {
+	width: 150px;
+	float: left;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	height: 25px;
+}
+
+.studentStack li .statsHolder span {
+	flex: 1 0 0;
+	text-align: center;
+	font-size: 16px;
+	margin: 0;
+	display: inline;
+	text-align: center;
+	line-height: 25px;
+	float: left;
+	height: 25px;
+	overflow-y: hidden;
+	color: #222;
+}
+
+.schoolResult img {
+	margin: 2px;
+}
+
+.schoolResult h3 {
+	width: auto;
+	float: left;
+}
+
+.resultsHolder .schoolResultStudents img {
+	width: 20px;
+	height: 20px;
+	border-radius: 15px;
+	border: 1px solid lightcoral;
+	float: left;
+	margin: 2px;
+}
+
+.soloStudent #temptop img {
+	width: 98px;
+	margin-left: 150px;
+	margin-right: 150px;
+	height: 98px;
+	border-radius: 80px;
+	border: 2px solid lightcoral;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.mainSettings {
+	margin: auto;
+	margin-top: 100px;
+	float: left;
+}
+
+.firstSetting {
+}

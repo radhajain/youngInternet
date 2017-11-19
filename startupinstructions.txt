@@ -1,0 +1,9 @@
+mkdir app
+cd app 
+express something
+sudo apt-get install python3-pip
+sudo pip install virtualenv
+sudo apt-get install python3-bs4
+git remote add -t \* -f origin https://github.com/radhajain/youngInternet
+git pull origin master
+sudo apt-get install p

@@ -1,0 +1,76 @@
+<section id="selects">
+  <!-- Side lists -->
+  
+  <!-- <span class="unselectable"(click)="switchSchoolList()">Schools</span>
+  <ul id="schoolSelect" class="select" *ngIf="schoolList">
+    <li *ngFor="let s of schools; let i = index" (click)="selectSchool(s)">
+        <img src="https://www.cybersmile.org/wp-content/plugins/cybersmile-forum//style/default-avatar.png">
+        <h3 
+        [class.otherSelectStyle]="i % 2 == 0"
+        [class.anotherSelectStyle]="i % 2 == 1">
+          {{s.name}}
+        </h3>
+    </li>
+  </ul> -->
+  <span id="selectSpacer" [ngClass]="{
+    bottomAdjacentSettingsSelected: uBottomAdjacentSelected 
+  }"></span>
+  <span id="dssSettings" [ngClass]="{
+    selectedSettings: dssSettingsSelected,
+    bottomAdjacentSettingsSelected: dssBottomAdjacentSelected 
+  }" (click)="selectDss()">Default Search Settings</span>
+  <span id="ciSettings" [ngClass]="{
+    selectedSettings: ciSettingsSelected,
+    topAdjacentSettingsSelected: ciTopAdjacentSelected,
+    bottomAdjacentSettingsSelected: ciBottomAdjacentSelected 
+  }" (click)="selectCi()">Contact Information</span>  
+  <span id="pSettings" [ngClass]="{
+    selectedSettings: pSettingsSelected,
+    topAdjacentSettingsSelected: pTopAdjacentSelected,
+    bottomAdjacentSettingsSelected: pBottomAdjacentSelected 
+  }" (click)="selectP()">Privacy Settings</span>  
+  <span id="ppSettings" [ngClass]="{
+    selectedSettings: ppSettingsSelected,
+    topAdjacentSettingsSelected: ppTopAdjacentSelected
+  }" (click)="selectPp()">Promotional Preferences</span>
+  <ul id="studentSelect" [ngClass]="{
+    topAdjacentSettingsSelected: ssTopAdjacentSelected
+  }" class="select">
+    <!-- <li *ngFor="let s of students; let i = index" (click)="selectStudent(s)"> -->
+        <!-- <img src="https://www.cybersmile.org/wp-content/plugins/cybersmile-forum//style/default-avatar.png">
+        <h3 
+        [class.otherSelectStyle]="i % 2 == 0"
+        [class.anotherSelectStyle]="i % 2 == 1">
+          {{s.name}}
+        </h3> -->
+    <!-- </li> -->
+  </ul>
+</section>
+<section *ngIf="dssSettingsSelected" class="mainSettings">
+  <div class="firstSetting">
+    <span>Setting 1</span> <input type="text" placeholder="setting one">
+  </div>
+  <span>Setting 2</span> <input type="radio"> <input type="radio"> <input type="radio">
+  <span>Setting 3</span> <input type="checkbox"> <input type="checkbox">
+</section>
+<section *ngIf="ciSettingsSelected" class="mainSettings">
+  <div class="firstSetting">
+    <span>Setting 1</span> <input type="text" placeholder="setting one">
+  </div>
+  <span>Setting 2</span> <input type="radio"> <input type="radio"> <input type="radio">
+  <span>Setting 3</span> <input type="checkbox"> <input type="checkbox">
+</section>
+<section *ngIf="pSettingsSelected" class="mainSettings">
+  <div class="firstSetting">
+    <span>Setting 1</span> <input type="text" placeholder="setting one">
+  </div>
+  <span>Setting 2</span> <input type="radio"> <input type="radio"> <input type="radio">
+  <span>Setting 3</span> <input type="checkbox"> <input type="checkbox">
+</section>
+<section *ngIf="ppSettingsSelected" class="mainSettings">
+  <div class="firstSetting">
+    <span>Setting 1</span> <input type="text" placeholder="setting one">
+  </div>
+  <span>Setting 2</span> <input type="radio"> <input type="radio"> <input type="radio">
+  <span>Setting 3</span> <input type="checkbox"> <input type="checkbox">
+</section>
