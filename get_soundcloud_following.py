@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 
 skip = input()
 
-print ','.join(['from','to', 'weight', 'type'])
+print(','.join(['from','to', 'weight', 'type']))
 #for loop
 
 
@@ -40,7 +40,7 @@ for row in reader:
 	elems = elems[::2]
 
 	for elem in elems:
-		print ','.join([source, elem.get_attribute("href"), "1", 'Soundcloud']).encode('utf-8').strip()
+		print(','.join([source, elem.get_attribute("href"), "1", 'Soundcloud']).encode('utf-8').strip())
 
 	time.sleep(randint(20,30))	
 
