@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,9 @@ export class AppComponent {
 
   constructor(private _dataService: DataService) {
 
-    this._dataService.getUsers()
-      .subscribe(res => this.users = res);
-
+    this._dataService.getUsers().map(res=>res.json()).subscribe(res=> {
+    	console.log(res)
+      this.users = res['data']});
   }
 
 }

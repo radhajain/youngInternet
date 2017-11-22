@@ -1,0 +1,92 @@
+mkdir app
+cd app 
+express something
+sudo apt-get install python3-pip
+sudo pip install virtualenv
+sudo apt-get install python3-bs4
+git remote add -t \* -f origin https://github.com/radhajain/youngInternet
+git pull origin master
+sudo apt-get install p
+7  npm install -g @angular/cli
+    8  sudo npm install -g @angular/cli
+    9  ls
+   10  ng new tyi
+   11  cd tyi/
+   12  npm install express body-parser
+   13  nano server.js
+   14  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+   15  which gnupg2
+   16  sudo apt install dirmngr
+   17  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+   18  df
+   19  uname
+   20  uname -a
+   21  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+   22  cat /etc/apt/sources.list.d/mongodb-org-3.4.list 
+   23  sudo apt-get update
+   24  uname -a
+   25  sudo apt-get install mongodb-org
+   26  sudo apt-get install mongodb-org-shell
+   27  sudo apt-get install libssl1.0.0
+   28  sudo apt-get install libssl1.0.1
+   29  rm /etc/apt/sources.list.d/mongodb-org-3.4.list 
+   30  sudo rm /etc/apt/sources.list.d/mongodb-org-3.4.list 
+   31  echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+   32  sudo apt-get install libssl1.0.1
+   33  sudo apt-get install mongodb-org
+   34  sudo apt-get update
+   35  sudo apt-get install mongodb-org
+   36  sudo apt-get install -y mongodb-org
+   37  sudo apt-get install -y mongodb-org-server
+   38  wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   39  wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb$ wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   40  $ wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   41  wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   42  sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   43  wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u6_amd64.deb
+   44  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+   45  sudo apt-get update
+   46  sudo apt-get install -y mongodb-org-server
+   47  wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u7_amd64.deb security.debian.org/debian-security
+   48  sudo apt-get install -y mongodb-org
+   49  sudo apt-get install -y mongodb-org-shell
+   50  sudo dpkg -i libssl1.0.0_1.0.1t-1+deb8u7_amd64.deb 
+   51  sudo apt-get install -y mongodb-org
+   52  mongo
+   53  mongod
+   54  mongo
+   55  sudo mongo
+   56  sudo mongod
+   57  mkdir /data/db
+   58  sudo mkdir /data/db
+   59  mkdir -p /data/db
+   60  sudo mkdir -p /data/db
+   61  mongo
+   62  sudo mongo
+   63  mongod
+   64  sudo mongod
+   65  sudo mongod &
+   66  ps aux | grep mongo
+   67  mongo
+   68  ls
+   69  rm libssl1.0.0_1.0.1t-1+deb8u7_amd64.deb 
+   curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+  107  ;s
+  108  ls
+  109  sudo bash nodesource_setup.sh 
+  110  ls
+  111  sudo apt-get install build-essential
+  112  sudo apt-get install -y build-essential
+119  sudo mkdir /var/www/html/nodejs
+  120  sudo cp -r tyi/ /var/www/html/nodejs/
+  121  sudo chmod /var/www/html/nodejs/tyi/server.js 
+  122  sudo chmod 755 /var/www/html/nodejs/tyi/server.js 
+  123  sudo npm install -g pm2
+126  sudo pm2 start server.js 
+  127  sudo pm2 startup systemd
+  128  sudo a2enmod proxy
+  129  sudo a2enmod proxy_http
+  130  sudo service apache2 restart
+267  nano .htaccess
+  268  sudo nano .htaccess
+  269  sudo service apache2 restart

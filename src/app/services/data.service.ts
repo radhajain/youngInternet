@@ -12,7 +12,14 @@ export class DataService {
 
   getUsers() {
     return this._http.get("/api/users")
-      .map(result => this.result = result.json().data);
+      // .map((response) => response.json());
+      // .map(result => this.result = result.json().data);
+  }
+
+  getInfluencers() {
+  return this._http.get("/api/influencers")
+    // .map((response) => response.json());
+    // .map(result => this.result = result.json().data);
   }
 
 }

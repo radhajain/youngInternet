@@ -48,8 +48,8 @@ router.get('/influencers', (req, res) => {
         db.collection('influencers')
             .find()
             .toArray()
-            .then((users) => {
-                response.data = users;
+            .then((influencers) => {
+                response.data = influencers;
                 res.json(response);
             })
             .catch((err) => {
@@ -57,6 +57,44 @@ router.get('/influencers', (req, res) => {
             });
     });
 });
+
+function addNewInfluencer(name, soundcloud_url, instagram_url, yt_channel_id, yt_channel_url) {
+  var newInfluencer = {}
+  //get num influencers and assign num + 1
+  newInfluencer['intid'] = name;
+  newInfluencer['artist'] = name;
+  //scrape this from the soundcloud url
+  newInfluencer['soundcloudFollows'] = name;
+  newInfluencer['soundcloud_url'] = soundcloud_url;
+
+  newInfluencer['instagram_url'] = instagram_url;
+  newInfluencer['yt_channel_id'] = yt_channel_id;
+  newInfluencer['yt_channel_url'] = yt_channel_url;
+
+  // newInfluencer['twitter_url'] = name;
+  //assign url 
+  // newInfluencer['tyi_url'] = name;
+  // newInfluencer['artist_type'] = name;
+  // newInfluencer['type_label'] = name;
+  // newInfluencer['soundcloud_followers'] = name;
+  // newInfluencer['location'] = name;
+  // newInfluencer['label'] = name;
+  // newInfluencer['signed'] = name;
+  // newInfluencer['monitored'] = name;
+  // newInfluencer['score'] = name;
+  // newInfluencer['growth_percent'] = name;
+  // newInfluencer['image']: = name;
+  // newInfluencer['parent'] = name;
+  // newInfluencer['notes'] = name;
+}
+
+function editInfluencer(id, field, value) {
+  //get artist by ID
+  //artist[field] = value;
+  //mongo record save
+}
+
+
 
 // Adjust Settings
 // router.get('/settings', (req, res) => {
