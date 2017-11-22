@@ -1,33 +1,40 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const http = require('http');
+const app = express();
+
+// API file for interacting with MongoDB
+const api = require('./server/routes/api');
+
+// Parsers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+// Angular DIST output folder
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// API location
+app.use('/api', api);
+
+// Send all other requests to the Angular app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
+//Set Port
+const port = process.env.PORT || '3000';
+app.set('port', port);
+
+const server = http.createServer(app);
+// module.exports = app;
+server.listen(port, '0.0.0.0', () => console.log(`Running on localhost:${port}`));
 var spawn = require('child_process').spawn;
 var fs = require('fs');
-var routes = require('./routes/index');
-var users = require('./routes/users');
+
 var csv = require('fast-csv');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,17 +66,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-//exec('/usr/bin/python3 /home/bitnami/projects/sample/get_soundcloud_followers_today.py')
-//var process = spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"]);
-  //spawn('python3',["/home/bitnami/projects/sample/get_soundcloud_followers_today.py"])}, 120* 1000)
 
-// mongoose.connect('mongodb://localhost/test', { useMongoClient: true }, function(error) {
-//   console.log('we connected')
-//   console.log(error)
-// });
-var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/artists');
+var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/admin');
 mongoose.Promise = global.Promise;
-var Cat = mongoose.model('Cat', { name: String });
 
 var artistSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -95,6 +94,42 @@ var artistSchema = new Schema({
   parent: String,
   notes: String
 });
+
+function addNewInfluencer(name, soundcloud_url, instagram_url, yt_channel_id, yt_channel_url) {
+  var newInfluencer = {}''
+  //get num influencers and assign num + 1
+  newInfluencer['intid'] = name;
+  newInfluencer['artist'] = name;
+  //scrape this from the soundcloud url
+  newInfluencer['soundcloudFollows']: = name;
+  newInfluencer['soundcloud_url'] = soundcloud_url;
+
+  newInfluencer['instagram_url'] = instagram_url;
+  newInfluencer['yt_channel_id'] = yt_channel_id;
+  newInfluencer['yt_channel_url'] = ytchannel_url;
+
+  // newInfluencer['twitter_url'] = name;
+  //assign url 
+  // newInfluencer['tyi_url'] = name;
+  // newInfluencer['artist_type'] = name;
+  // newInfluencer['type_label'] = name;
+  // newInfluencer['soundcloud_followers'] = name;
+  // newInfluencer['location'] = name;
+  // newInfluencer['label'] = name;
+  // newInfluencer['signed'] = name;
+  // newInfluencer['monitored'] = name;
+  // newInfluencer['score'] = name;
+  // newInfluencer['growth_percent'] = name;
+  // newInfluencer['image']: = name;
+  // newInfluencer['parent'] = name;
+  // newInfluencer['notes'] = name;
+}
+
+function editInfluencer(id, field, value) {
+  //get artist by ID
+  //artist[field] = value;
+  //mongo record save
+}
 
 var Artist = mongoose.model('Artist', artistSchema);
 
@@ -140,34 +175,10 @@ var csvStream = csv.parse().on("data", function(data)
   artists.push(artistObj);
   // console.log(data);
 }).on("end", function(){
+  console.log(artists.slice(1, artists.length));
   Artist.create(artists, function(err, documents) {
-    console.log(documents);
     if (err) throw err;
-  });    
-  var myConnection = mongoose.createConnection('localhost', 'admin');
-  var mm = myConnection.model('artists', artistSchema);
-  myConnection.db.collection("Artists", function(err, collection) {
-    console.log(" SEARCHING");
-    collection.find({}).toArray(function(err, data) {
-      console.log(data);
-    });
-  });
-  var myDoc = new Artist({});
+  }); 
 });
  
 stream.pipe(csvStream);
-
-// var kitty = new Cat({ name: 'Zildjian' });
-// kitty.save(function (err) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('meow');
-//   }
-// });
-
-module.exports = app;
-app.listen(3001, () => {
-  console.log('Example app listening on port 3001!')
-})
-

@@ -1,14 +1,13 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-//var logger = require('morgan');
-//var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var spawn = require('child_process').spawn;
 var fs = require('fs');
-var main = require('./routes/index');
-var settings = require('./routes/settings');
-var influencer = require('./routes/influencer');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 var csv = require('fast-csv');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -21,20 +20,14 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//blog main
-app.use('/', main);
-
-//skyler admin dashboard
-app.use('/settings', settings);
-
-//CRUD an influencer record
-app.use('/influencer', influencer)
+app.use('/', routes);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -74,8 +67,7 @@ app.use(function(err, req, res, next) {
 //   console.log('we connected')
 //   console.log(error)
 // });
-// var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/admin');
-var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/admin');
+var db = mongoose.createConnection('mongodb:///opt/bitnami/mongodb/tmp/mongodb-27017.sock/artists');
 mongoose.Promise = global.Promise;
 var Cat = mongoose.model('Cat', { name: String });
 
@@ -103,42 +95,6 @@ var artistSchema = new Schema({
   parent: String,
   notes: String
 });
-
-function addNewInfluencer(name, soundcloud_url, instagram_url, yt_channel_id, yt_channel_url) {
-  var newInfluencer = {}''
-  //get num influencers and assign num + 1
-  newInfluencer['intid'] = name;
-  newInfluencer['artist'] = name;
-  //scrape this from the soundcloud url
-  newInfluencer['soundcloudFollows']: = name;
-  newInfluencer['soundcloud_url'] = soundcloud_url;
-
-  newInfluencer['instagram_url'] = instagram_url;
-  newInfluencer['yt_channel_id'] = yt_channel_id;
-  newInfluencer['yt_channel_url'] = ytchannel_url;
-
-  // newInfluencer['twitter_url'] = name;
-  //assign url 
-  // newInfluencer['tyi_url'] = name;
-  // newInfluencer['artist_type'] = name;
-  // newInfluencer['type_label'] = name;
-  // newInfluencer['soundcloud_followers'] = name;
-  // newInfluencer['location'] = name;
-  // newInfluencer['label'] = name;
-  // newInfluencer['signed'] = name;
-  // newInfluencer['monitored'] = name;
-  // newInfluencer['score'] = name;
-  // newInfluencer['growth_percent'] = name;
-  // newInfluencer['image']: = name;
-  // newInfluencer['parent'] = name;
-  // newInfluencer['notes'] = name;
-}
-
-function editInfluencer(id, field, value) {
-  //get artist by ID
-  //artist[field] = value;
-  //mongo record save
-}
 
 var Artist = mongoose.model('Artist', artistSchema);
 
@@ -184,10 +140,19 @@ var csvStream = csv.parse().on("data", function(data)
   artists.push(artistObj);
   // console.log(data);
 }).on("end", function(){
-  console.log(artists.slice(1, artists.length));
   Artist.create(artists, function(err, documents) {
+    console.log(documents);
     if (err) throw err;
   });    
+  var myConnection = mongoose.createConnection('localhost', 'admin');
+  var mm = myConnection.model('artists', artistSchema);
+  myConnection.db.collection("Artists", function(err, collection) {
+    console.log(" SEARCHING");
+    collection.find({}).toArray(function(err, data) {
+      console.log(data);
+    });
+  });
+  var myDoc = new Artist({});
 });
  
 stream.pipe(csvStream);

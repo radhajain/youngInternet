@@ -1,10 +1,10 @@
-import { AppPage } from './app.po';
+import { MeanPage } from './app.po';
 
-describe('client App', () => {
-  let page: AppPage;
+describe('mean App', () => {
+  let page: MeanPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new MeanPage();
   });
 
   it('should display welcome message', () => {
