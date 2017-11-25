@@ -1,5 +1,32 @@
-li.col-4 {
+div.container {
+	max-width: none;
+}
+
+ul {
+	width: 100%;
+}
+
+ul li.row div.col-4 {
 	background-color: rgba(108, 63, 158, 0.8);
+	max-width: none;
+	width: -webkit-fill-available;
+	flex: none;
+	line-height: 38px;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+ul li.row div.col-4:hover {
+	background-color: rgba(108, 63, 158, 0.65);
+}
+
+ul li.row div.col-4 a {
+	color: #fefcf0;
+}
+
+ul li.row div.col-4 a:hover {
+	text-decoration: underline;
 }
 
 * {
@@ -14,6 +41,14 @@ body {
 	background: #19042f;
 }
 
+button {
+	float: right;
+}
+
 button:hover {
 	cursor: pointer;
+}
+
+.btn-secondary {
+	margin-right: 5px;
 }
