@@ -9,3 +9,11 @@ li.col-4 {
 html {
 	background: #19042f;
 }
+
+body {
+	background: #19042f;
+}
+
+button:hover {
+	cursor: pointer;
+}
