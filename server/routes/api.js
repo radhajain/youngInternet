@@ -46,7 +46,7 @@ router.get('/users', (req, res) => {
 router.get('/influencers', (req, res) => {
     connection((db) => {
         db.collection('influencers')
-            .find()
+            .find({}).sort({ 'score': 1})
             .toArray()
             .then((influencers) => {
                 response.data = influencers;
