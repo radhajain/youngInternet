@@ -1,0 +1,146 @@
+body { 
+	font-family: 'Lato', sans-serif;
+}
+
+
+ul {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  line-height: normal;
+  list-style-type: none;
+  padding: 5px;
+}
+
+main {
+	height: 960px;
+}
+
+
+li {
+	margin-top: 10px;
+}
+
+.list-container {
+	margin-left: 20%
+}
+
+.list-title{
+	margin-left: 20%;
+	margin-top: 20%;
+}
+
+.endorsers {
+	margin: auto;
+	margin-top: 10%;
+}
+
+a {
+	color: grey;
+	text-decoration: none;
+}
+
+
+#listen {
+	alignment-baseline: bottom;
+	margin: auto;
+}
+
+.artists-nav a:active {
+	color: black;
+	margin-top: 11px;
+}
+
+.endorsers a:active {
+	color: white;
+	margin-top: 11px;
+}
+
+.header {
+	margin-top: 3%;
+	width: 70%;
+	margin-bottom: 3%;
+	padding: 1em;
+}
+
+
+.navigation {
+	float: left;
+	height: 500px;
+	width: 30%;
+}
+
+.side-feature {
+	float: left;
+	width: 70%;
+}
+
+
+.nav-bar {
+	margin-left: 40%;
+}
+
+.title {
+	float: left;
+	font-size: 30px;
+	margin: 20px auto;
+}
+
+.description {
+	float: right;
+	max-width: 200px;
+	margin-bottom: 50px;
+	padding-top: 0px;
+}
+
+
+#featured {
+	float: left;
+	right: 0px;
+	height: 500px;
+	width: 25%;
+	background-color: black;
+	color: white;
+}
+
+#photo {
+	float: left;
+	height: 500px;
+	width: 75%;
+	background-color: pink;
+}
+
+body, html {
+    height: 100%;
+    background: #19042f;
+}
+
+.bg { 
+    /* The image used */
+    margin: 0;
+/*    background-image: url("clouds.jpg");*/
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+/*    background-position: center;
+    background-repeat: no-repeat;*/
+    background-size: cover;
+    display: flex;
+    position: relative;
+}
+
+.centered {
+	position: absolute;
+  	top: 50%; left: 50%;
+  	transform: translate(-50%,-50%);
+  	width: 100%;
+  	height: 50px;
+}
+
+#title {
+	color: white;
+	text-align: center;
+	font-size: 70px;
+}

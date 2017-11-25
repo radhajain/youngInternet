@@ -7,11 +7,13 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { HttpModule } from '@angular/http';
 import { DataService } from './services/data.service';
 import { routedComponents, AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routedComponents,
+    HomeComponent,
   ],
   imports: [
     AppRoutingModule,
