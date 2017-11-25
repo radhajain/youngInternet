@@ -1,3 +1,8 @@
 <ul>
-  <li *ngFor="let inf of influencers">{{ inf.artist }}</li>
+  <li *ngFor="let inf of influencers" class="row">
+	  <div class="col-4">
+			{{ inf.artist }}
+		</div>
+		<button type="button" class="btn btn-secondary" style="color:lightgrey">Secondary</button>
+  </li>
 </ul>
