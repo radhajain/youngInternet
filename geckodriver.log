@@ -5284,3 +5284,60 @@ Gdk-Message: firefox: Fatal IO error 11 (Resource temporarily unavailable) on X 
 
 Gdk-Message: /opt/firefox57/firefox: Fatal IO error 11 (Resource temporarily unavailable) on X server :99.
 
+1514298137926	geckodriver	INFO	geckodriver 0.19.1
+1514298137930	geckodriver	INFO	Listening on 127.0.0.1:51325
+1514298139040	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.jDCU5YM7e0s6"
+Error: GDK_BACKEND does not match available displays
+1514298172470	geckodriver	INFO	geckodriver 0.19.1
+1514298172473	geckodriver	INFO	Listening on 127.0.0.1:33049
+1514298173585	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.nuCLX989i45Y"
+1514298174439	Marionette	INFO	Enabled via --marionette
+1514298177127	Marionette	INFO	Listening on port 37371
+1514298177199	Marionette	WARN	TLS certificate errors will be ignored for this session
+1514298177279	Marionette	DEBUG	Register listener.js for window 2147483649
+1514298177311	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1514298177553	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1514298177554	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1514298178150	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://soundcloud.com/montell2099/following"
+1514298180624	Marionette	DEBUG	Received DOM event "pageshow" for "https://soundcloud.com/montell2099/following"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14283, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1514298203089	geckodriver	INFO	geckodriver 0.19.1
+1514298203092	geckodriver	INFO	Listening on 127.0.0.1:34763
+1514298204204	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.MzVvgZCqnZKF"
+1514298204795	Marionette	INFO	Enabled via --marionette
+1514298206945	Marionette	INFO	Listening on port 40129
+1514298207015	Marionette	WARN	TLS certificate errors will be ignored for this session
+1514298207111	Marionette	DEBUG	Register listener.js for window 2147483649
+1514298207138	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1514298207671	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1514298207671	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1514298208215	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://soundcloud.com/montell2099/following"
+1514298210496	Marionette	DEBUG	Received DOM event "pageshow" for "https://soundcloud.com/montell2099/following"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14418, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1514298377040	geckodriver	INFO	geckodriver 0.19.1
+1514298377043	geckodriver	INFO	Listening on 127.0.0.1:58309
+1514298378155	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.ubRwkFTOorLv"
+1514298378590	Marionette	INFO	Enabled via --marionette
+1514298380088	Marionette	INFO	Listening on port 43907
+1514298380163	Marionette	WARN	TLS certificate errors will be ignored for this session
+1514298380241	Marionette	DEBUG	Register listener.js for window 2147483649
+1514298380273	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1514298380534	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1514298380534	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1514298381105	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://soundcloud.com/montell2099/following"
+1514298384105	Marionette	DEBUG	Received DOM event "pageshow" for "https://soundcloud.com/montell2099/following"
+1514298599862	Marionette	DEBUG	Received DOM event "beforeunload" for "https://soundcloud.com/montell2099/following"
+1514298600131	Marionette	DEBUG	Received DOM event "pagehide" for "https://soundcloud.com/montell2099/following"
+1514298600145	Marionette	DEBUG	Received DOM event "unload" for "https://soundcloud.com/montell2099/following"
+1514298600576	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://soundcloud.com/wethebeat/following"
+1514298600606	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1514298600607	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483656"
+1514298600607	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+1514298600607	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1514298600608	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1514298600608	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1514298601936	Marionette	DEBUG	Received DOM event "pageshow" for "https://soundcloud.com/wethebeat/following"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14649, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
