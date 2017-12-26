@@ -1,4 +1,3 @@
-setwd("~/Documents/the_young_internet")
 library(tidyverse)
 library(stringr)
 library(ggplot2)
@@ -6,9 +5,11 @@ library(gtools)
 
 full_data <- read.csv("soundcloud_followers_data.csv", check.names = FALSE)
 new_data <- read.csv("soundcloud_followers_today.csv", check.names = FALSE)
-nodes <- read.csv("the_young_internet_nodes.csv", check.names = FALSE)
+#nodes <- read.csv("the_young_internet_nodes.csv", check.names = FALSE)
+nodes <- read.csv("temp.txt", check.names = FALSE)
 new_data[,2]
 nodes$soundcloud_followers <- new_data[,2]
+
 nodes
 new_data
 full_data
@@ -27,28 +28,24 @@ growth <- select(growth, id, artist, new_growth)
 growth <- growth[order(growth$id),]
 nodes$growth_percent <- growth$new_growth
 nodes
-
-#
 write.csv(full_data, file = "soundcloud_followers_data.csv", row.names = FALSE)
 write.csv(nodes, file = "the_young_internet_nodes.csv", row.names = FALSE)
-#
-
 gather_data <- gather(full_data, date, count, -artist_name)
 #gather_data$count[is.na(gather_data$count)] <- 0
 gather_data$date <- as.Date(gather_data$date, "%m.%d.%y")
 gather_data
-
 small <- filter(gather_data, count < 10000)
-small_graph <- ggplot(data = small, aes(x=date, y = count, group = artist_name)) + 
-  geom_line(aes(color = artist_name)) +
-  labs(title='Soundcloud Followers over Time', x="\nDate", y="Followers\n") +
-  theme(legend.position = c(1, 1), 
-        legend.justification = c(0,1),
-        legend.key.width = unit(1, "lines"),
-        plot.margin = unit(c(1, 5, 0.5, 0.5), "lines")) +
-  scale_color_discrete(name = 'Name')
-small_graph
-
+print("first filter")
+#small_graph <- ggplot(data = small, aes(x=date, y = count, group = artist_name)) #+ 
+#  geom_line(aes(color = artist_name)) +
+ # labs(title='Soundcloud Followers over Time', x="\nDate", y="Followers\n") +
+  #theme(legend.position = c(1, 1), 
+   #     legend.justification = c(0,1),
+    #    legend.key.width = unit(1, "lines"),
+     #   plot.margin = unit(c(1, 5, 0.5, 0.5), "lines")) +
+  #scale_color_discrete(name = 'Name')
+#small_graph
+print("small graph")
 under20 <- filter(gather_data, count < 20000 & count > 10000)
 under20
 under20_graph <- ggplot(data = under20, aes(x=date, y = count, group = artist_name)) + 

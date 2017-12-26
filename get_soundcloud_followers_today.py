@@ -10,12 +10,13 @@ i = datetime.datetime.now()
 i.strftime('%m.%d.%y')
 
 # print(','.join(['artist_name', i.strftime('%m.%d.%y')]))
-f = open('output.txt', 'w')
+f = open('soundcloud_followers_today.csv', 'w')
 # f.write(','.join(['artist_name', i.strftime('%m.%d.%y')]) + '\n')
 #for loop
 strToWrite = ''
 strToWrite += ','.join(['artist_name', i.strftime('%m.%d.%y')]) + '\n'
-with open('little_nodes.csv') as csvfile:
+#with open('little_nodes.csv') as csvfile:
+with open('the_young_internet_nodes.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     next (readCSV)
     for row in readCSV:

@@ -1,4 +1,4 @@
-setwd("~/Documents/the_young_internet")
+#setwd("~/Documents/the_young_internet")
 library(tidyverse)
 library(stringr)
 library(ggplot2)
@@ -7,7 +7,9 @@ tyi_edges <- read.csv("the_young_internet_edges.csv", check.names = FALSE)
 tyi_nodes <- read.csv("the_young_internet_nodes.csv", check.names = FALSE)
 session_edges <- read.csv("following_session.csv", check.names = FALSE)
 new_urls <- read.csv("new_urls.csv", check.names = FALSE)
+print("asdasd")
 total_edges <- read.csv("all_edges.csv", check.names = FALSE)
+
 
 session_edges
 

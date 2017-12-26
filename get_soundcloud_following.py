@@ -7,15 +7,15 @@ from random import randint
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-skip = input()
-
-print ','.join(['from','to', 'weight', 'type'])
+#skip = input()
+skip = 1
+print(','.join(['from','to', 'weight', 'type']))
 #for loop
 
-
 driver = webdriver.Firefox()
-reader = csv.reader(open("the_young_internet_nodes.csv"))
-for x in xrange(skip):
+#reader = csv.reader(open("the_young_internet_nodes.csv"))
+reader = csv.reader(open("lil_nodes.csv"))
+for x in range(skip):
 	next(reader)
 for row in reader:
 	source = row[2]
@@ -39,7 +39,7 @@ for row in reader:
 	elems = elems[::2]
 
 	for elem in elems:
-		print ','.join([source, elem.get_attribute("href"), "1", 'Soundcloud']).encode('utf-8').strip()
+		print(','.join([source, elem.get_attribute("href"), "1", 'Soundcloud']).encode('utf-8').strip())
 
 	time.sleep(randint(20,30))	
 
